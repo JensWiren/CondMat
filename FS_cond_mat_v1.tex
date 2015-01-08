@@ -1,0 +1,54 @@
+\documentclass[12pt]{extarticle}
+\usepackage[a3paper,twoside,margin={0.25cm,1.3cm}]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{multicol, fancyhdr}
+\usepackage{amsbsy, amssymb, amsmath, gensymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+\pagestyle{fancy}
+
+\lhead{Formulas in Condensed Matter Theory}
+
+\title{Formulas in Condensed Matter Theory}
+\author{Several}
+
+\definecolor{DarkBlue}{rgb}{0,0,0.4}
+\definecolor{DarkRed}{rgb}{0.6,0,0}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+  pdfauthor={Several},%
+  pdftitle={Formulas in Condensed Matter Theory}%
+}
+\hypersetup{
+  colorlinks,%
+  urlcolor=DarkBlue,%
+  linkcolor=DarkRed%
+}
+
+\newcommand{\U}[1]{\textrm{#1}}
+\newcommand{\mysection}[1]{
+\vspace{1mm}
+\hrule
+\section{\Huge{#1}}}
+
+\begin{document}
+
+\begin{center}
+\resizebox{28 cm}{!}{Formulas in Condensed Matter Theory}
+\end{center}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.3pt}
+
+\mysection{First section}
+\subsection{A subsection}
+Some example hyperbolic equations. Use this style!
+$$\sinh x= \dfrac{1}{2} \left( e^{x} - e^{-x} \right), \quad \cosh x= \dfrac{1}{2} \left( e^{x} + e^{-x} \right), \quad \tanh x= \dfrac{\sinh x}{\cosh x}$$
+$$\cosh ^2 x - \sinh ^2 x = 1, \quad \tanh (x+y) = \dfrac{\tanh x + \tanh y}{1+\tanh x \tanh y}$$
+$$\dfrac{d}{dx}(\sinh^{-1} x)=\dfrac{1}{\sqrt{x^2+1}}, \quad \dfrac{d}{dx}(\cosh^{-1} x)=\dfrac{1}{\sqrt{x^2-1}}, \quad \dfrac{d}{dx}(\tanh^{-1} x)=\dfrac{1}{1-x^2}$$
+
+\mysection{Second section}
+
+\end{multicols*}
+\end{document}
