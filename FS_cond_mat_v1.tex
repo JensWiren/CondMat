@@ -139,6 +139,41 @@ $$H_{kin} e^{i \mathbf{q}\cdot \mathbf{r}} = E^{(0)e^{i \mathbf{q}\cdot \mathbf{
 $$E^{(0)}(\mathbf{q})=\dfrac{q^2}{2m}$$
 
 \subsection{Eigenvalue Repulsion}
+$$\det \parentheses{M-\lambda \mathrm{I}}=0$$
+$$\lambda_{\nu_1}(p_*)=\lambda_{\nu_2}(p_*)$$
+$$\det \parentheses{M-\lambda \mathrm{I}}=(\lambda_{\nu_1}-\lambda)(\lambda_{\nu_2}-\lambda)f(\lambda), \; (p=p_*)$$
+$$P=(\lambda_{\nu_1}-\lambda)(\lambda_{\nu_2}-\lambda)=\lambda^2-2b\lambda+c$$
+$$\lambda_{1,2}=b\pm \sqrt{b^2-c}$$
+
+\subsection{Wannier Functions}
+$$\Phi_{\nu \mathbf{n}}(\mathbf{r})=\dfrac{1}{\sqrt{N}} \sum_{\mathbf{q}}^{BZ} e^{-i \mathbf{q} \cdot \mathbf{T}_{\mathbf{n}}} \psi_{\nu \mathbf{q}}(\mathbf{r})$$
+$$\ket{\Phi_{\mathbf{n}}} \sum_{\mathbf{q}} U_{\mathbf{nq}} \ket{\psi_{\mathbf{q}}}$$
+$$U_{\mathbf{nq}}=\dfrac{1}{\sqrt{N}}e^{-i \mathbf{q} \cdot \mathbf{T}_{\mathbf{n}}}$$
+$$U^\dagger U = U U^\dagger = 1$$
+$$\Phi_{0}(\mathbf{r}) \equiv \Phi_{\mathbf{n=0}}(\mathbf{r})$$
+$$\Phi_{\mathbf{n}}(\mathbf{r})=\Phi_{0}(\mathbf{r}-\mathbf{T_{n}})$$
+$$\Phi_{\mathbf{n}}(\mathbf{r})= \dfrac{1}{N}\sum_{\mathbf{q}}^{BZ} e^{i \mathbf{q} \cdot (\mathbf{r}-\mathbf{T_{n}})} u_{\mathbf{q}}(\mathbf{r})= \dfrac{1}{N}\sum_{\mathbf{q}}^{BZ} e^{i \mathbf{q} \cdot (\mathbf{r}-\mathbf{T_{n}})} u_{\mathbf{q}}(\mathbf{r}-\mathbf{T_n})$$
+$$\Phi_{0}(\mathbf{r})=\dfrac{V_0}{(2\pi)^d} \int_{BZ} e^{i \mathbf{q} \cdot \mathbf{r}} u_{\mathbf{q}}(\mathbf{r}) d^dq, \quad (N \rightarrow \infty)$$
+
+\subsection{Hopping Hamiltonian}
+$$H= \sum_{\mathbf{q}} E(\mathbf{q}) \creation{a}_{\mathbf{q}} \hat{a}_{\mathbf{q}}$$
+$$\hat{a}_{\mathbf{q}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{n}} e^{-i \mathbf{q} \cdot \mathbf{T_n}} \hat{a}_{\mathbf{n}}$$
+$$\hat{a}_{\mathbf{n}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{q}} e^{i \mathbf{q} \cdot \mathbf{T_n}} \hat{a}_{\mathbf{q}}$$
+$$\creation{a}_{\mathbf{q}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{n}} e^{i \mathbf{q} \cdot \mathbf{T_n}} \creation{a}_{\mathbf{n}}$$
+$$\creation{a}_{\mathbf{n}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{q}} e^{-i \mathbf{q} \cdot \mathbf{T_n}} \creation{a}_{\mathbf{q}}$$
+$$H=- \sum_{\mathbf{n},\mathbf{m}}  t_{\mathbf{m}} \: \creation{a}_{\mathbf{n+m}} a_{\mathbf{n}}$$
+$$t_{\mathbf{m}}=-\dfrac{V_0}{(2\pi)^d}\int_{BZ} E(\mathbf{q}) e^{i \textbf{q} \cdot \mathbf{T_m}} d^dq$$
+$$E(\mathbf{q})= -\sum_{\mathbf{m}} t_{\mathbf{m}} e^{-i \mathbf{q} \cdot \mathbf{T_m}}$$
+
+\subsection{Tight-Binding Limit}
+$$H= -t \sum_{\average{i,j}} \creation{a}_{j} \hat{a}_{i}$$
+$$E(\mathbf{q})= -t\sum_{\mathbf{m}}^{n.n.} e^{-i \mathbf{q} \cdot \mathbf{T_m}}$$
+$$H=- \sum_{\mathbf{n},\mathbf{m}, \alpha, \beta}  t_{\alpha, \beta} \: \creation{a}_{\alpha(\mathbf{n+m})} a_{\beta \mathbf{n}}$$
+
+\subsection{Dissipation}
+i.e. connected to a bath consisting of an infinite amount of SHO
+$$H= \sum_{i} E(\mathbf{q}) \creation{a}_{i} \hat{a}_{i}?$$
+
 
 \end{multicols*}
 \end{document}
