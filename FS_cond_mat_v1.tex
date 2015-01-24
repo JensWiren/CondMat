@@ -8,10 +8,11 @@
 \usepackage{graphicx}
 \pagestyle{fancy}
 
-\lhead{Formulas in Condensed Matter Theory}
+\rhead{{Jens Wir\'{e}n} $<$\href{mailto:jenswir@kth.se}{jenswir@kth.se}$>$ \today}
+\lhead{Formulas in Condensed Matter Theory SI2600 KTH}
 
 \title{Formulas in Condensed Matter Theory}
-\author{Several}
+\author{Jens Wir\'{e}n $<$jenswir@kth.se$>$}
 
 \definecolor{DarkBlue}{rgb}{0,0,0.4}
 \definecolor{DarkRed}{rgb}{0.6,0,0}
@@ -26,10 +27,33 @@
   linkcolor=DarkRed%
 }
 
+%Average
+\newcommand{\average}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+%Parenthesis 
+\newcommand{\parentheses}[1]{\ensuremath{\left( #1 \right)}}
+%Absolute value
+\newcommand{\absolutevalue}[1]{\ensuremath{\left| #1 \right|}}
+%Commutator
+\newcommand{\commutator}[1]{\ensuremath{\left[ #1 \right]}}
+%Anti-commutator
+\newcommand{\anticommutator}[1]{\ensuremath{\left\lbrace #1 \right\rbrace}}
+%QED
+\newcommand{\QED}{\begin{flushright}\textit{Q.E.D.}\end{flushright}}
+%Split
+\newcommand{\spliteq}[1]{\begin{split} #1 \end{split}}
+%ket
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+%bra
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+%\braket
+\newcommand{\braket}[2]{\left\langle #1 \; \right| \left. #2 \right\rangle}
+%creation operator
+\newcommand{\creation}[1]{\hat{#1}^{\dagger}}
+
 \newcommand{\U}[1]{\textrm{#1}}
 \newcommand{\mysection}[1]{
 \vspace{1mm}
-\hrule2
+\hrule
 \section{\Huge{#1}}}
 
 \begin{document}
@@ -41,14 +65,80 @@
 \begin{multicols*}{2}
 \setlength{\columnseprule}{0.3pt}
 
-\mysection{First section}
-\subsection{A subsection}
-Some example hyperbolic equations. Use this style!
-$$\sinh x= \dfrac{1}{2} \left( e^{x} - e^{-x} \right), \quad \cosh x= \dfrac{1}{2} \left( e^{x} + e^{-x} \right), \quad \tanh x= \dfrac{\sinh x}{\cosh x}$$
-$$\cosh ^2 x - \sinh ^2 x = 1, \quad \tanh (x+y) = \dfrac{\tanh x + \tanh y}{1+\tanh x \tanh y}$$
-$$\dfrac{d}{dx}(\sinh^{-1} x)=\dfrac{1}{\sqrt{x^2+1}}, \quad \dfrac{d}{dx}(\cosh^{-1} x)=\dfrac{1}{\sqrt{x^2-1}}, \quad \dfrac{d}{dx}(\tanh^{-1} x)=\dfrac{1}{1-x^2}$$
+\mysection{Second Quantization}
+\subsection{Creation and Annihilation Operators}
+$$\hat{a}=\sqrt{\dfrac{m \omega}{2}} \hat{x} + \dfrac{i}{\sqrt{2m \omega}} \hat{p}$$
+$$\creation{a}=\sqrt{\dfrac{m \omega}{2}} \hat{x} - \dfrac{i}{\sqrt{2m \omega}} \hat{p}$$
+$$\creation{a} \ket{n} = \sqrt{n+1}\ket{n+1}$$
+$$\hat{a} \ket{n} = \sqrt{n}\ket{n-1}$$
+$$\commutator{\hat{a},\creation{a}} = 1$$
 
-\mysection{Second section}
+\subsection{Number Operator}
+$$\hat{N}= \creation{a} \hat{a}	$$
+$$\commutator{\hat{N},\creation{a}} = \creation{a}$$
+$$\commutator{\hat{N},\hat{a}} = -\hat{a}$$
+$$\hat{H}= \omega \parentheses{\hat{N}+\dfrac{1}{2}}$$
+
+\mysection{Crystal Structure \& Reciprocal Lattice}
+$$\mathbf{T}=n_1\mathbf{a}_1+n_2\mathbf{a}_2+n_3\mathbf{a}_3$$
+$$\mathbf{b}_1=2\pi \dfrac{\mathbf{a}_2\times\mathbf{a}_3}{\mathbf{a}_1 \cdot \parentheses{\mathbf{a}_2\times\mathbf{a}_3}}$$
+$$\mathbf{b}_2=2\pi \dfrac{\mathbf{a}_1\times\mathbf{a}_3}{\mathbf{a}_2 \cdot \parentheses{\mathbf{a}_1\times\mathbf{a}_3}}$$
+$$\mathbf{b}_3=2\pi \dfrac{\mathbf{a}_1\times\mathbf{a}_2}{\mathbf{a}_3 \cdot \parentheses{\mathbf{a}_1\times\mathbf{a}_2}}$$
+$$\mathbf{G}=m_1\mathbf{b}_1+m_2\mathbf{b}_2+m_3\mathbf{b}_3$$
+$$V_c^{(rcpr)}=(2\pi)^{d}/V_c$$
+
+\mysection{Vibrations of Atoms}
+\subsection{General Theory}
+$$L=\sum_n \dfrac{m_n \dot{\mathbf{u}}_n^2}{2}-U \parentheses{ \anticommutator{\mathbf{R}_n} }$$
+$$m_n \ddot{u}_n^i= - \sum_{nn'} A^{ii'}_{nn'} u^{i'}_{n'}$$
+$$A^{ik}_{nn'}=\dfrac{1}{2} \parentheses{\dfrac{\partial^2 U}{\partial R^i_n R^{i'}_{n'}} +\dfrac{\partial^2 U}{\partial R^{i'}_{n'} R^i_n }} \big|_{\anticommutator{\mathbf{R}_n}=\anticommutator{\mathbf{R}_n^{(0)}}}$$
+$$\mathbf{u}_n(t)=\dfrac{\mathbf{v}_n}{\sqrt{m_n}}e^{-i \omega t}$$
+$$\omega^2 v_n^i = \sum_{n'i'} \tilde{A}_{nn'}^{ii'} v^{i'}_{n'}$$
+$$\det \parentheses{\tilde{A}-\omega^2 \mathrm{I}}=0$$
+
+\subsection{Phonons}
+$$m_j \ddot{u}_{\mathbf{n}j}^i = - \sum_{\mathbf{n}'j'i'} A_{jj'}^{ii'}(\mathbf{n}-\mathbf{n}') u^{i'}_{\mathbf{n}'j'}$$
+$$\mathbf{u}_{\mathbf{n}j}(t)=\mathbf{u}_j(\mathbf{q},t) e^{i \mathbf{q} \cdot \mathbf{T}_\mathbf{n}}$$
+$$m_j \ddot{u}_{j}^i (\mathbf{q}) = - \sum_{'j'i'} C_{jj'}^{ii'}(\mathbf{q}) u^{i'}_{'j'}(\mathbf{q})$$
+$$C_{jj'}^{ii'}(\mathbf{q})=\sum_{\mathbf{n}_1'j'i'} A_{jj'}^{ii'}(\mathbf{n}_1) e^{-i \mathbf{q} \cdot \mathbf{T}_{\mathbf{n}_1}}$$
+$$\sum_{\beta=1}^{d\nu_0} \tilde{C}_{\alpha \beta} v_{\beta} = \omega^ 2 v_{\alpha}$$
+$$\det \parentheses{\tilde{C}(\mathbf{q})-\omega^2(\mathbf{q}) \mathrm{I}}=0$$
+
+\subsection{Therodynamics of Phonons}
+$$H_{ph}= \sum_{\nu \mathbf{q}} \epsilon_{\nu \mathbf{q}} \parentheses{\creation{b}_{\nu \mathbf{q}} \hat{b}_{\nu \mathbf{q}} + \dfrac{1}{2}}$$
+$$Z= \mathrm{Tr} \; e^{-H/T}$$
+$$F=-T \ln Z$$
+$$D(\epsilon)=\sum_{\nu \mathbf{q}} \delta \parentheses{\epsilon - \epsilon_{\nu \mathbf{q}}}$$
+$$F=T \int d\epsilon D(\epsilon) \ln \parentheses{1-e^{-\epsilon/T}}$$
+$$S = -\parentheses{\dfrac{\partial F}{\partial T}}_{V}$$
+$$E = F + TS$$
+$$C_V = \parentheses{\dfrac{\partial E}{\partial T}}_{V}$$
+$$E= \int d\epsilon D(\epsilon) \epsilon n_{\epsilon}$$
+$$n_{\epsilon}=\dfrac{1}{e^{\epsilon/T}-1}$$
+$$N_{bosons}= \int d\epsilon D(\epsilon) n_{\epsilon}$$
+
+\subsection{Quantum Theory of Phonons}
+$$\average{\hat{b}_{\nu \mathbf{g}}}=\average{\creation{b}_{\nu \mathbf{g}}}=0 \Longrightarrow \average{\mathbf{u}_{\mathbf{n}j}}=0$$
+$$\average{\mathbf{u}_{\mathbf{n}j}^2} \propto \average{\creation{b}_{sj} \hat{b}_{si}}$$
+$$\average{\parentheses{\mathbf{u}_{\mathbf{n}j}^i}^2} = \dfrac{1}{m_j}\sum_\nu \int_{BZ} \dfrac{d^dg}{(2\pi)^d} \absolutevalue{v_{j\nu}^i(\mathbf{g})}^2 \dfrac{\bar{n}_{\nu \mathbf{g}}+1/2}{\omega_\nu (\mathbf{g})}$$
+$$\bar{n}_{\nu \mathbf{g}} \equiv \average{n_{\nu \mathbf{g}}}=\dfrac{1}{e^{\omega_\nu (\mathbf{g})/T}-1}$$
+$$\average{\parentheses{\mathbf{u}_{\mathbf{n}j}^i}^2} \sim [\mathrm{non-singular \; part]} + T \int_0^{cutoff} \dfrac{dg}{g^{3-d}} \rightarrow \infty \qquad \parentheses{d \leq 2, \: T > 0}$$
+$$\average{\parentheses{\mathbf{u}_{\mathbf{n}j}^i}^2} \sim [\mathrm{non-singular \; part]} + T \int_0^{cutoff} \dfrac{dg}{g} \rightarrow \infty \qquad \parentheses{d = 1, \: T = 0}$$
+
+\mysection{Electronic Subsystem}
+\subsection{Bloch's Theory}
+$$H= H_{kin}+U(\mathbf{r})$$
+$$H_{kin}= -\dfrac{\nabla^ 2}{2m}$$
+$$U(\mathbf{r}+\mathbf{T})=U(\mathbf{r})$$
+$$\psi_{\nu \mathbf{q}}(\mathbf{r)}= u_{\nu \mathbf{q}}(\mathbf{r)} e^{i \mathbf{q} \cdot \mathbf{r}}$$
+$$u_{\nu \mathbf{q}}(\mathbf{r)} = \sum_{\mathbf{G}} f_\nu \parentheses{\mathbf{q}+\mathbf{G}} e^{i \mathbf{G} \cdot \mathbf{r}}$$
+$$u_{\nu \mathbf{q}}(\mathbf{r}+\mathbf{T}) = u_{\nu \mathbf{q}}(\mathbf{r)}$$
+$$(H-E)\psi=0$$
+$$\psi=\sum_{\mathbf{q}}C_{\mathbf{q}}e^{i \mathbf{q}\cdot \mathbf{r}}$$
+$$H_{kin} e^{i \mathbf{q}\cdot \mathbf{r}} = E^{(0)e^{i \mathbf{q}\cdot \mathbf{r}}}$$
+$$E^{(0)}(\mathbf{q})=\dfrac{q^2}{2m}$$
+
+\subsection{Eigenvalue Repulsion}
 
 \end{multicols*}
 \end{document}
