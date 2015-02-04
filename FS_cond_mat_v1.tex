@@ -59,7 +59,7 @@
 \begin{document}
 
 \begin{center}
-\resizebox{28 cm}{!}{Formulas in Condensed Matter Theory}
+\resizebox{22 cm}{!}{Formulas in Condensed Matter Theory}
 \end{center}
 
 \begin{multicols*}{2}
@@ -168,12 +168,119 @@ $$E(\mathbf{q})= -\sum_{\mathbf{m}} t_{\mathbf{m}} e^{-i \mathbf{q} \cdot \mathb
 \subsection{Tight-Binding Limit}
 $$H= -t \sum_{\average{i,j}} \creation{a}_{j} \hat{a}_{i}$$
 $$E(\mathbf{q})= -t\sum_{\mathbf{m}}^{n.n.} e^{-i \mathbf{q} \cdot \mathbf{T_m}}$$
-$$H=- \sum_{\mathbf{n},\mathbf{m}, \alpha, \beta}  t_{\alpha, \beta} \: \creation{a}_{\alpha(\mathbf{n+m})} a_{\beta \mathbf{n}}$$
+$$H=- \sum_{\mathbf{n},\mathbf{m}, \alpha, \beta}  t_{\alpha, \beta}(\mathbf{m}) \: \creation{a}_{\alpha(\mathbf{n+m})} a_{\beta \mathbf{n}}$$
+$$\hat{a}_{\alpha\mathbf{n}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{q}} e^{i \mathbf{q} \cdot \mathbf{T_n}} \hat{a}_{\alpha\mathbf{q}}$$
+$$\creation{a}_{\alpha\mathbf{n}}= \dfrac{1}{\sqrt{N}} \sum_{\mathbf{q}} e^{-i \mathbf{q} \cdot \mathbf{T_n}} \creation{a}_{\alpha\mathbf{q}}$$
+$$H=\sum_{\mathbf{q}} \sum_{\alpha, \beta} H_{\alpha \beta}(\mathbf{q}) \creation{a}_{\alpha \mathbf{q}} \hat{a}_{\beta \mathbf{q}}$$
+$$H_{\alpha \beta}(\mathbf{q})= -\sum_{\mathbf{m}} t_{\alpha \beta}(\mathbf{m}) e^{-i \mathbf{q} \cdot \mathbf{T_m}}$$
+$$\sum_{\beta} H_{\alpha \beta} u_{\beta}^{(\nu)}= E_{\nu} u_{\alpha}^{(\nu)}$$
+$$\creation{a}_{\alpha}=\sum_{\nu} \commutator{u_{\alpha}^{(\nu)}}^* \creation{b}_{\nu}$$
+$$\hat{a}_{\beta}=\sum_{\nu} u_{\alpha}^{(\nu)} \hat{b}_{\nu}$$
+$$H=\sum_{\nu \mathbf{q}} E_{\nu} (\mathbf{q}) \creation{b}_{\nu \mathbf{q}} \hat{b}_{\nu \mathbf{q}}$$
 
-\subsection{Dissipation}
-i.e. connected to a bath consisting of an infinite amount of SHO
-$$H= \sum_{i} E(\mathbf{q}) \creation{a}_{i} \hat{a}_{i}?$$
+\mysection{Superfluidity}
 
+\subsection{Superfluid Velocity and its Quantum}
+$$\mathbf{v}_s (\mathbf{r}) = \gamma \nabla \mathbf{\Phi (r)}$$
+$$\psi = \absolutevalue{\psi} e^{i \Phi}$$
+$$\partial^\mu \partial_{\mu} \psi= -\lambda^2 \psi, \quad (\gamma=c^2/\lambda)$$
+$$i \dfrac{\partial \psi}{\partial t}= -\dfrac{\gamma}{2} \nabla^2 \psi$$
+$$H=\dfrac{1}{2} \gamma \absolutevalue{\nabla \psi}^2 + V(\mathbf{r}) \absolutevalue{\psi}^2 + \dfrac{g}{2}\absolutevalue{\psi}^4 - \mu \absolutevalue{\psi}^2$$
+$$i \dot{\psi} = -\dfrac{\gamma}{2} \nabla \psi + g \absolutevalue{\psi}^2 \psi + V(\mathbf{r}) \psi - \mu \psi$$
+$$\oint \mathbf{v_s} \cdot d\mathbf{l} = \gamma \oint \nabla \Phi \cdot d\mathbf{l} \Rightarrow \absolutevalue{v_s}=\dfrac{\gamma}{r}N, \quad \parentheses{\gamma=\dfrac{\hbar}{m}}$$
+$$l_0=\sqrt{\dfrac{\gamma}{g n_0}}, \quad \parentheses{\l_0 \rightarrow \infty, g \rightarrow 0}$$
+
+\subsection{Superfluid Vortex Solution}
+$$M= \dfrac{1}{2\pi} \oint_C \nabla \Phi \cdot d\mathbf{l} \neq 0$$
+$$\psi(\rho, r) = \sqrt{n(\rho)} e^{\pm i \Phi}$$
+$$E_{vortex}=\pi \gamma n_0 \ln \dfrac{R}{l_0}$$
+$$\Delta E - MW < 0$$
+$$W_c = \dfrac{\gamma}{R^2} \ln \dfrac{R}{l_0}$$
+
+\mysection{Superconductivity}
+
+\subsection{Gauge Tranformations}
+\subsubsection{GPE}
+$$\psi \mapsto \psi'=\psi e^{i \varphi}$$
+$$A \mapsto A'=A-\nabla \varphi$$
+$$V \mapsto V'=V+\varphi$$
+
+\subsection{GL}
+$$\psi \mapsto \psi'=\psi e^{-i \chi(\textbf{x})}$$
+$$A_\mu \mapsto A'_\mu=A_\mu-\dfrac{1}{e}\nabla \chi(\textbf{x})$$
+
+\subsubsection{QED}
+$$\psi \mapsto \psi'=\psi e^{-i \alpha(x)}$$
+$$A_\mu \mapsto A'_\mu=A_\mu-\dfrac{1}{e}\partial_\mu \alpha(x)$$
+
+\subsection{Meissner Effect}
+$$\lambda = \dfrac{1}{\sqrt{q\gamma n_s}}, \quad \mu_A = \lambda^{-1}$$
+$$\mathbf{B} + \lambda^2 \nabla \times \nabla \times \mathbf{B} = 0$$
+$$\mathbf{B}(x)=B(x) \hat{e}_z \Rightarrow B(x)=B(0) e^{-x/\lambda} \quad (x>0)$$
+$$\mathbf{J}= \nabla \times \mathbf{B} \Rightarrow J_y(x)=-\dfrac{dB}{dx}=\dfrac{B(0)}{\lambda} e^{-x/\lambda} \quad (x>0)$$
+
+\subsection{Magnetic Flux Quantization}
+$$\mathbf{J}_s=-\lambda^{-2} \parentheses{\dfrac{\hbar}{q} \nabla \theta + \mathbf{A}}$$
+$$\oint_C \mathbf{A} \cdot d \mathbf{l} = \int_{S_C} \nabla \times \mathbf{A} \cdot d \mathbf{\hat{s}} =  \int_{S} \mathbf{B} \cdot d \mathbf{\hat{s}} = \Phi$$
+$$\oint_C \nabla \theta \cdot d\mathbf{l} = 2\pi N$$
+$$\oint_C \mathbf{J}_s + \int_{S} \mathbf{B} \cdot d \mathbf{\hat{s}} = \dfrac{2 \pi \hbar N}{q}=N \Phi_0, \quad N=0,\pm 1, \pm 2...$$
+
+\subsection{Ginzburg-Landau Theory}
+$$F=\dfrac{\gamma}{2} \absolutevalue{\parentheses{\nabla + iq\mathbf{A}} \psi }^2 - a \absolutevalue{\psi}^2 + \dfrac{b}{2} \absolutevalue{\psi}^4 + \dfrac{1}{2} \parentheses{\nabla \times \mathbf{A}}^2$$
+$$\dfrac{\delta F	}{\delta \psi^*}=0, \quad \dfrac{\delta F	}{\delta \mathbf{A}}=0$$
+
+\subsection{Critical Fields}
+$$\lambda = \dfrac{1}{\sqrt{q\gamma n_s}}, \xi =  \dfrac{1}{2\sqrt{a}}$$
+
+\subsubsection{Type 1: $\kappa=\lambda/\xi \ll 1$}
+$$F(\psi=0)-F(\psi=\absolutevalue{\psi} = \dfrac{a^2}{2b}= \dfrac{H_c^2}{2}$$
+
+\subsubsection{Type 2: $\kappa=\lambda/\xi \gg 1$}
+$$ G - F_{s}^{(0)} = E_v - \Phi_0 H \rightarrow H_{c1}=\dfrac{E_v}{\Phi_0}$$
+$$\parentheses{-i \nabla + q\mathbf{A}}^2 \psi = 2a \psi, \quad \absolutevalue{\psi} \rightarrow 0$$
+$$H_{c2}=\dfrac{\psi_0}{4 \pi \xi^ 2}$$
+
+\subsection{Vortices}
+
+\subsubsection{Single Vortex}
+$$\mathbf{B} + \lambda^2 \nabla \times \nabla \times \mathbf{B} = \dfrac{\Phi_0}{2\pi} \nabla \times \nabla \theta$$
+$$B=\dfrac{\Phi}{2\pi \lambda^2}K_0(r/\lambda)$$
+$$B(0) \approx \dfrac{\Phi}{2\pi \lambda^2}\ln(\lambda/\xi)$$
+$$E_v=\dfrac{\Phi}{2} \approx\dfrac{1}{4\pi}\parentheses{\dfrac{\Phi}{\lambda}}^2 \ln \parentheses{\dfrac{\lambda}{\xi}}, \quad (\Phi=N\Phi_0)$$
+
+\subsubsection{Vortex Interactions in the London Limit}
+$$E_{tot} = NE_{v}+\sum_{r_{kl}} E_{int}(r_{kl})$$
+$$F = -\dfrac{dE_{int}}{dr_{ij}}$$
+$$F_{free}=\int \dfrac{\mathbf{B}}{2} \parentheses{\mathbf{B}+\dfrac{1}{e^2 \rho^2} \nabla \times \nabla \times \mathbf{B}}$$
+$$\dfrac{1}{e^2 \rho^2} \nabla \times \nabla \times \mathbf{B} + \mathbf{B} = \sum_i \Phi_i \delta(\mathbf{x}-\mathbf{x}_i)$$
+$$\mathbf{B}_i=\dfrac{\Phi_i e^2 \rho^2}{2\pi}K_0\parentheses{\dfrac{|\mathbf{x}-\mathbf{x}_i|}{\lambda}}$$
+$$F_{free}=\int \dfrac{1}{2} \parentheses{\mathbf{B}_a+\mathbf{B}_b} \parentheses{\Phi_a \delta(\mathbf{x}-\mathbf{x}_a)+\Phi_b \delta(\mathbf{x}-\mathbf{x}_b)}=$$
+$$=-\dfrac{\Phi_a \Phi_b e^2 \rho^2}{2 \pi}K_0 \parentheses{\dfrac{r}{\lambda}} + E_{\nu a}+ E_{\nu b}$$
+$$r_{ij}=|\mathbf{x}_2-\mathbf{x}_1|$$
+$$E_{int,aa}=-\dfrac{|\psi_a|^4}{\rho^2}K_0 \parentheses{\dfrac{r_{ij}}{\lambda}}$$
+$$E^{(int),elec}_{ab}=2\pi C_1^2 K_0 \parentheses{\dfrac{\absolutevalue{\mathbf{x}_a-\mathbf{x}_b}}{\lambda}}$$
+$$E^{(int),cores}_{ab}=-2\pi C_2^2 K_0 \parentheses{\dfrac{\absolutevalue{\mathbf{x}_a-\mathbf{x}_b}}{\xi}}$$
+$$E^{(int)}_{ab}=2\pi \parentheses{C_1^2 K_0 \parentheses{\dfrac{d}{\lambda}}-C_2^2 K_0 \parentheses{\dfrac{d}{\xi}}}, \quad d=\absolutevalue{\mathbf{x}_a-\mathbf{x}_b}$$
+
+
+\mysection{BCS-theory}
+$$\omega_D - \epsilon_F < E < \omega_D + \epsilon_F$$
+$$H=\sum_{\mathbf{k},\sigma} \epsilon_{\mathbf{k}} \creation{c}_{\mathbf{k}\sigma} \hat{c}_{\mathbf{k}\sigma} - \absolutevalue{g_{eff}}^2 \sum \creation{c}_{\mathbf{k}_1+\mathbf{q}\sigma_1} \creation{c}_{\mathbf{k}_2-\mathbf{q}\sigma_2}  \hat{c}_{\mathbf{k}_1\sigma_1} \hat{c}_{\mathbf{k}_2\sigma_2}$$
+$$H=\sum_{\mathbf{k},\sigma} \epsilon_{\mathbf{k}} \creation{c}_{\mathbf{k}\sigma} \hat{c}_{\mathbf{k}\sigma} - \absolutevalue{g_{eff}}^2 \sum_{\mathbf{k,k'}} \creation{c}_{\mathbf{k}\uparrow} \creation{c}_{-\mathbf{k}\downarrow}  \hat{c}_{-\mathbf{k}'\downarrow} \hat{c}_{\mathbf{k}'\uparrow}$$
+
+
+\subsection{BCS Gap}
+$$\Delta_0= \dfrac{1}{D(\epsilon_F)V} \int_0^{\omega_D} \dfrac{d \xi}{\sqrt{\xi^2 + \Delta^2_0}} \tanh \parentheses{\dfrac{\sqrt{\xi^2 + \Delta^2_0}}{2T}} \approx 2 \omega_D e^{-\dfrac{1}{D(\epsilon_F)V}}$$
+
+\subsection{Critical Velocity}
+$$\mathbf{k_F} \mapsto \mathbf{kF}+\dfrac{1}{2}\mathbf{k} \Rightarrow \Delta E = \dfrac{1}{m}k_F k$$
+$$2 \Delta (T) = \dfrac{k_F k}{m} \Rightarrow p_c = \dfrac{2 \Delta}{v_F}$$
+$$J_c=n_s e v_c = n_s \dfrac{e \Delta (T)}{m v_F }$$
+
+\subsection{Critical Temperature}
+$$\Delta(T) \rightarrow 0, \quad T \rightarrow T_c$$
+$$\Delta(T_c)=0 \Rightarrow \dfrac{1}{D(\epsilon_F)V} \int_0^{\omega_D} \dfrac{d \xi}{\xi} \tanh \parentheses{\dfrac{\xi}{2T}} \rightarrow 0$$
+$$T_c = 1.14 \omega_D e^{-\dfrac{1}{D(\epsilon_F)V}} \Rightarrow T_c = \dfrac{3.52}{2} \Delta_0$$
 
 \end{multicols*}
 \end{document}
